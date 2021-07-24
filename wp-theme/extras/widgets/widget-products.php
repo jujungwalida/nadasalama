@@ -13,7 +13,7 @@ class NSI_Products_Widget extends WP_Widget {
             __( 'Products', 'nsi' ),
             array(
                 'description' => __( 'Widget for Products', 'nsi' ),
-            ),
+            )
         );
 
         add_action( 'widgets_init', function () {

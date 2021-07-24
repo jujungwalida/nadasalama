@@ -13,7 +13,7 @@ class NSI_Map_Widget extends WP_Widget {
             __( 'Map', 'nsi' ),
             array(
                 'description' => __( 'Widget for Map', 'nsi' ),
-            ),
+            )
         );
 
         add_action( 'widgets_init', function () {

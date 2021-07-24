@@ -13,7 +13,7 @@ class NSI_Support_Widget extends WP_Widget {
             __( 'Support', 'nsi' ),
             array(
                 'description' => __( 'Widget for Support', 'nsi' ),
-            ),
+            )
         );
 
         add_action( 'widgets_init', function () {

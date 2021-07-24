@@ -13,7 +13,7 @@ class NSI_Custom_Widget extends WP_Widget {
             __( 'Custom Widget', 'nsi' ),
             array(
                 'description' => __( 'Custom Widget for Custom Company', 'nsi' ),
-            ),
+            )
         );
 
         add_action( 'widgets_init', function () {

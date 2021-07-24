@@ -13,7 +13,7 @@ class NSI_About_Company_Widget extends WP_Widget {
             __( 'About Company', 'nsi' ),
             array(
                 'description' => __( 'Widget for About Company', 'nsi' ),
-            ),
+            )
         );
 
         add_action( 'widgets_init', function () {

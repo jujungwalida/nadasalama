@@ -778,4 +778,8 @@ class NSI_Customizer {
         return ( $file_ext['ext'] ? $file : $setting->default );
     }
 
+    public static function sanitize_phone($phone) {
+        return preg_replace( '/[^\d+]/', '', $phone );
+    }
+
 }
