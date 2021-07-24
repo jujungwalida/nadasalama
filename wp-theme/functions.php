@@ -99,8 +99,8 @@ function nsi_setup() {
     /** Register menu area */
     register_nav_menus(
         array(
-            'main_menu'     => esc_html__( 'Main Menu', 'nsi' ),
-            'language_menu' => esc_html__( 'Additional Menu at Top', 'nsi' ),
+            'main_menu'  => esc_html__( 'Main Menu', 'nsi' ),
+            'extra_menu' => esc_html__( 'Extra Menu at Top', 'nsi' ),
         )
     );
 
