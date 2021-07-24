@@ -12,7 +12,7 @@
     <div class="flex items-center w-6/12 h-screen mx-auto">
         <div>
             <h1 class="text-9xl font-black uppercase">404</h1>
-            <p class="text-xl mt-4 mb-8"><?php echo __esc_html( 'Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarily unavailable.' ); ?></p>
+            <p class="text-xl mt-4 mb-8"><?php echo esc_html( 'Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarily unavailable.' ); ?></p>
             <a class="text-sm font-black uppercase text-gray-100 bg-primary-red rounded shadow inline-block px-6 py-4 hover:text-white hover:bg-secondary-red focus:outline-none" href="<?php echo esc_url( home_url( '/' ) ); ?>">Go to Home Page</a>
         </div>
     </div>
