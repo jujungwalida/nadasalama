@@ -4,6 +4,16 @@ if ( version_compare( $GLOBALS['wp_version'], '5.3', '<' ) ) {
 	require get_template_directory() . '/includes/back-compat.php';
 }
 
+function nsi_theme_dependencies() {
+    if ( ! class_exists( 'Classic_Editor' ) ) {
+        $class = 'notice notice-warning';
+        $message = 'Currently this theme needs the following plugins: <a href="https://wordpress.org/plugins/classic-editor/" target="_blank">Classic Editor</a>. This is important for displaying Gallery correctly.';
+
+        printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message );
+    }
+}
+add_action( 'admin_notices', 'nsi_theme_dependencies' );
+
 function nsi_setup() {
 
     // Make it ready for translation
@@ -143,6 +153,12 @@ function nsi_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'nsi_scripts' );
+
+// Disables the block editor from managing widgets in the Gutenberg plugin.
+add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
+
+// Disables the block editor from managing widgets.
+add_filter( 'use_widgets_block_editor', '__return_false' );
 
 // Customizer additions.
 require get_template_directory() . '/classes/class-customizer.php';
