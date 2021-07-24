@@ -21,3 +21,30 @@ function nsi_get_gallery_images( $post_id ) {
 
 	return array_map( "wp_get_attachment_url", $image_ids );
 }
+
+function nsi_get_siblings( $id ) {
+    $post = get_post( $id );
+    $parent = $post->post_parent;
+    $siblings = array();
+
+    if ( $parent ) {
+        $args = get_pages( array(
+            'post_type'   => 'page',
+            'post_status' => array( 'publish', ),
+            'exclude'     => $id,
+        ) );
+
+        $siblings = get_page_children( $parent, $args );
+    }
+
+    return $siblings;
+}
+
+function nsi_get_children( $id ) {
+    $args = get_pages( array(
+        'post_type' => 'page',
+        'post_status' => array( 'publish' ),
+    ) );
+
+    return get_page_children( $id, $args );
+}

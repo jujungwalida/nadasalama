@@ -8,7 +8,12 @@
             while ( have_posts() ) :
                 the_post();
 
-                get_template_part( 'template-parts/content/content' );
+                if ( 'gallery' == get_post_format( get_the_ID() ) ) :
+                    get_template_part( 'template-parts/content/content-gallery' );
+                else :
+                    get_template_part( 'template-parts/content/content' );
+                endif;
+
             endwhile;
         else :
             get_template_part( 'template-parts/content/content-none' );

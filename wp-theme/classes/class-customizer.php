@@ -469,8 +469,8 @@ class NSI_Customizer {
         $wp_customize->add_panel(
             'nsi_support_and_social_media_panel', array(
                 'priority' => 30,
-                'title' => __( 'Contact Support &amp; Social Media', 'nsi' ),
-                'description' => __( 'Customize Contact Support &amp; Social Media' ),
+                'title' => __( 'Contact Support and Social Media', 'nsi' ),
+                'description' => __( 'Customize Contact Support and; Social Media' ),
             )
         );
 
@@ -483,6 +483,7 @@ class NSI_Customizer {
                 'panel' => 'nsi_support_and_social_media_panel',
                 'priority' => 10,
                 'title' => __( 'Contact Support', 'nsi' ),
+                'description' => __( 'Most of these will show inside About Company Widget, Support Widget and Map Widget' ),
             )
         );
 
@@ -533,8 +534,8 @@ class NSI_Customizer {
             array(
                 'section' => 'nsi_support_section',
                 'label' => esc_html__( 'Google Map Link', 'nsi' ),
-                'description' => esc_html__( 'Open Google Map from your browser, select location, press share, copy generated link then paste here.', 'nsi' ),
                 'type' => 'url',
+                'description' => esc_html__( 'Open Google Map from your browser, select location, press share, copy generated link then paste here.', 'nsi' ),
             )
         );
 
@@ -551,7 +552,7 @@ class NSI_Customizer {
             array(
                 'section' => 'nsi_support_section',
                 'label' => esc_html__( 'Phone Number', 'nsi' ),
-                'description' => 'Only numbers, example: 628123456789',
+                'description' => __( 'DO NOT preceded by a plus sign. Only numbers and spaces.<br>Example: 62 812 345 6789', 'nsi' ),
                 'type' => '',
             )
         );
@@ -606,6 +607,7 @@ class NSI_Customizer {
                 'panel' => 'nsi_support_and_social_media_panel',
                 'priority' => 10,
                 'title' => __( 'Social Media', 'nsi' ),
+                'description' => __( 'These will show inside About Company Widget' ),
             )
         );
 
@@ -674,6 +676,80 @@ class NSI_Customizer {
                 'section' => 'nsi_social_media_section',
                 'label' => esc_html__( 'LinkedIn', 'nsi' ),
                 'type' => 'url',
+            )
+        );
+
+        /**
+         * Panel Extra
+         */
+        $wp_customize->add_panel(
+            'nsi_extra_panel',
+            array(
+                'priority' => 30,
+                'title' => __( 'Extra Settings', 'nsi' ),
+                'description' => __( 'Customize Extra Settings' ),
+            )
+        );
+
+        /**
+         * Section Products Archive
+         */
+        $wp_customize->add_section(
+            'nsi_products_archive_section',
+            array(
+                'panel' => 'nsi_extra_panel',
+                'priority' => 10,
+                'title' => __( 'Page for Products Archive', 'nsi' ),
+            )
+        );
+
+        // Control Page
+        $wp_customize->add_setting(
+            'nsi_products_archive_page',
+            array(
+                'sanitize_callback' => 'absint',
+            )
+        );
+
+        $wp_customize->add_control(
+            'nsi_products_archive_page',
+            array(
+                'label'          => esc_html__( 'Select Page' ),
+                'section'        => 'nsi_products_archive_section',
+                'type'           => 'dropdown-pages',
+                'allow_addition' => false,
+                'description'    => 'Selected page will show in product archive'
+            )
+        );
+
+        /**
+         * Section Gallery Header
+         */
+        $wp_customize->add_section(
+            'nsi_gallery_header_section',
+            array(
+                'panel' => 'nsi_extra_panel',
+                'priority' => 10,
+                'title' => __( 'Page for Gallery', 'nsi' ),
+            )
+        );
+
+        // Control Page
+        $wp_customize->add_setting(
+            'nsi_gallery_header_page',
+            array(
+                'sanitize_callback' => 'absint',
+            )
+        );
+
+        $wp_customize->add_control(
+            'nsi_gallery_header_page',
+            array(
+                'label'          => esc_html__( 'Select Page' ),
+                'section'        => 'nsi_gallery_header_section',
+                'type'           => 'dropdown-pages',
+                'allow_addition' => false,
+                'description'    => 'Selected page will show in gallery'
             )
         );
     }

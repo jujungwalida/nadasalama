@@ -17,6 +17,7 @@ function create_cpt_product() {
         'thumbnail',
         'custom-fields',
         'post-formats',
+        'archive',
     );
 
     $args = array(
@@ -24,9 +25,20 @@ function create_cpt_product() {
         'public'       => true,
         'supports'     => $supports,
         'show_in_rest' => true,
+        'has_archive'  => true,
     );
 
     register_post_type('product', $args );
 
 }
 add_action( 'init', 'create_cpt_product' );
+
+function get_cpt_product_template($template) {
+    global $post;
+
+    if ($post->post_type == 'product') {
+        $template = get_template_directory() . '/archive-product.php';
+    }
+    return $template;
+}
+add_filter( "archive_template", "get_cpt_product_template" );

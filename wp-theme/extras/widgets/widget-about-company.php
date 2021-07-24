@@ -34,7 +34,11 @@ class NSI_About_Company_Widget extends WP_Widget {
 
         ?>
         <div class="flex items-center space-x-2">
-            <div class="flex-shrink-0"><img class="h-auto w-6" src="<?php echo esc_url_raw( $logo ); ?>"></div>
+
+            <?php if ( has_custom_logo() ) : ?>
+                <div class="flex-shrink-0"><img class="h-auto w-6" src="<?php echo esc_url_raw( $logo ); ?>"></div>
+            <?php endif; ?>
+
             <div class="flex-grow"><p class="font-medium"><?php echo esc_html( $name ); ?></div>
         </div>
 
